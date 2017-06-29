@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
  @font-face {
    font-family:'BMYEONSUNG';
    src: url('/assets/BMYEONSUNG.ttf') format("truetype");
@@ -21,7 +22,7 @@
  }
 
  .container {
-   font-family: 'BMYEONSUNG';
+   font-family: 'Spoqa Han Sans', 'Sans-serif';
  }
 
  body {
@@ -39,10 +40,10 @@
  }
 
  .option-title{
-   font-size: 23px;
+   font-size: 21px;
    padding-top: 4px!important;
    padding-bottom: 0px!important;
- }
+  }
 
  .yield{
    padding-top: 20px;
