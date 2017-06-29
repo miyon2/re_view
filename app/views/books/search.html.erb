@@ -1,0 +1,6 @@
+<%= @books.each do |book| %>
+  <%= link_to book.title, book %>
+  <%= book.title %>
+  <%= book.content %>
+  <br>
+<% end %>

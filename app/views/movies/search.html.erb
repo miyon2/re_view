@@ -1,0 +1,6 @@
+<%= @movies.each do |movie| %>
+  <%= link_to movie.title, movie %>
+  <%= movie.title %>
+  <%= movie.content %>
+  <br>
+<% end %>

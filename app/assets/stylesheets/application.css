@@ -48,3 +48,9 @@
  .yield{
    padding-top: 20px;
  }
+
+  /* start page css */
+  #description{
+    padding-top: 10px;
+    font-size: 35px;
+  }

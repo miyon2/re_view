@@ -7,6 +7,14 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def search
+    if params[:search].present?
+      @movies = Movie.search(params[:search])
+    else
+      @movies = Movie.all
+    end
+  end
+
   # GET /movies/1
   # GET /movies/1.json
   def show
@@ -29,7 +37,7 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if @movie.save
         format.html { redirect_to @movie, notice: 'movie was successfully created.' }
-        format.json { render :show, status: :created, location: @movie }
+        format.json { render :show, status: :created, movie: @movie }
       else
         format.html { render :new }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
@@ -43,7 +51,7 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: 'movie was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movie }
+        format.json { render :show, status: :ok, movie: @movie }
       else
         format.html { render :edit }
         format.json { render json: @movie.errors, status: :unprocessable_entity }

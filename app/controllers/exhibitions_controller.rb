@@ -7,6 +7,14 @@ class ExhibitionsController < ApplicationController
     @exhibitions = Exhibition.all
   end
 
+  def search
+    if params[:search].present?
+      @exhibitions = Exhibition.search(params[:search])
+    else
+      @exhibitions = Exhibition.all
+    end
+  end
+
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show
@@ -29,7 +37,7 @@ class ExhibitionsController < ApplicationController
     respond_to do |format|
       if @exhibition.save
         format.html { redirect_to @exhibition, notice: 'exhibition was successfully created.' }
-        format.json { render :show, status: :created, location: @exhibition }
+        format.json { render :show, status: :created, exhibition: @exhibition }
       else
         format.html { render :new }
         format.json { render json: @exhibition.errors, status: :unprocessable_entity }
@@ -43,7 +51,7 @@ class ExhibitionsController < ApplicationController
     respond_to do |format|
       if @exhibition.update(exhibition_params)
         format.html { redirect_to @exhibition, notice: 'exhibition was successfully updated.' }
-        format.json { render :show, status: :ok, location: @exhibition }
+        format.json { render :show, status: :ok, exhibition: @exhibition }
       else
         format.html { render :edit }
         format.json { render json: @exhibition.errors, status: :unprocessable_entity }

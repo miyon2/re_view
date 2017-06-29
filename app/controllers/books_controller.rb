@@ -7,6 +7,14 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def search
+    if params[:search].present?
+      @books = Book.search(params[:search])
+    else
+      @books = Book.all
+    end
+  end
+
   # GET /books/1
   # GET /books/1.json
   def show
@@ -29,7 +37,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
+        format.json { render :show, status: :created, book: @book }
       else
         format.html { render :new }
         format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -43,7 +51,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
+        format.json { render :show, status: :ok, book: @book }
       else
         format.html { render :edit }
         format.json { render json: @book.errors, status: :unprocessable_entity }
