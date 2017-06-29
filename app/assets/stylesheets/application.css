@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+ @font-face {
+   font-family:'BMYEONSUNG';
+   src: url('/assets/BMYEONSUNG.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+ }
+
+ .container {
+   font-family: 'BMYEONSUNG';
+ }
+
+ body {
+   background-image: url(/assets/re_view_background.png);
+ }
+
+ nav {
+   background-color: #FAF2F1!important;
+ }
+
+ #site-title {
+   font-size: 30px;
+   padding-top: 3px!important;
+   padding-bottom: 0px!important;
+ }
+
+ .option-title{
+   font-size: 23px;
+   padding-top: 4px!important;
+   padding-bottom: 0px!important;
+ }
+
+ .yield{
+   padding-top: 20px;
+ }
