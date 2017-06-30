@@ -11,17 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="field row" id="form-title">
+    <%= f.label "제목", class: "col-md-1" %>
+    <%= f.text_field :title, class: "col review_form" %>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <div class="field row" id="form-content">
+    <%= f.label "내용", class: "col-md-1" %>
+    <%= f.text_area :content, class: "col review_form" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row check_form">
+    <div class="actions ml-auto">
+      <%= image_submit_tag("check.png", id: "check_button")%>
+    </div>
   </div>
+
 <% end %>

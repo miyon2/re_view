@@ -1,26 +1,18 @@
 <p id="description">
-  리뷰작성으로 당신의 추억을 간직하세요. <br>
+  영화, 도서, 전시회 리뷰를 자유롭게 작성하세요.<br>
 </p>
 
 <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @alls.each do |all| %>
-      <tr>
-        <td><%= all.title %></td>
-        <td><%= all.content %></td>
-        <td><%= link_to 'Show', all %></td>
-        <td><%= link_to 'Destroy', all, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @alls.each do |all| %>
+  <div class="row">
+    <p class="col-md-1 catalogue catalogue-title">
+      <%= @sum %>
+    </p>
+    <p class="col catalogue">
+      <%= link_to all.title, all, class: "col" %>
+    </p>
+  </div>
+  <hr>
+  <% @sum+=1 %>
+<% end %>

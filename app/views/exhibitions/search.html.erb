@@ -1,6 +1,17 @@
-<%= @exhibitions.each do |exhibition| %>
-  <%= link_to exhibition.title, exhibition %>
-  <%= exhibition.title %>
-  <%= exhibition.content %>
-  <br>
+<p id="category">
+    검색결과입니다.
+</p>
+
+<hr>
+
+<% @exhibitions.each do |exhibition| %>
+  <div class="row">
+    <p class="col-md-1 catalogue catalogue-title">
+      <%= exhibition.id %>
+    </p>
+    <p class="col catalogue">
+      <%= link_to exhibition.title, exhibition, class: "col" %>
+    </p>
+  </div>
+  <hr>
 <% end %>

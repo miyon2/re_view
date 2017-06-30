@@ -1,6 +1,17 @@
-<%= @movies.each do |movie| %>
-  <%= link_to movie.title, movie %>
-  <%= movie.title %>
-  <%= movie.content %>
-  <br>
+<p id="category">
+    검색결과입니다.
+</p>
+
+<hr>
+
+<% @movies.each do |movie| %>
+  <div class="row">
+    <p class="col-md-1 catalogue catalogue-title">
+      <%= movie.id %>
+    </p>
+    <p class="col catalogue">
+      <%= link_to movie.title, movie, class: "col" %>
+    </p>
+  </div>
+  <hr>
 <% end %>

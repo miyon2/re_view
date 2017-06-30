@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
+<p id="category">
+    <%= @book.title %>
 </p>
 
+<hr>
+
 <p>
-  <strong>Content:</strong>
   <%= @book.content %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<div class="row">
+  <div class="ml-auto">
+    <%= link_to '수정', edit_book_path(@book) %>
+    <%= link_to '목록', books_path %>
+    <%= link_to '삭제', @book, method: :delete, data: { confirm: '삭제하면 모든 데이터가 지워집니다. 정말 삭제하시겠습니까?' } %>
+  </div>
+</div>

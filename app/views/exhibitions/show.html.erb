@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @exhibition.title %>
+<p id="category">
+    <%= @exhibition.title %>
 </p>
 
+<hr>
+
 <p>
-  <strong>Content:</strong>
   <%= @exhibition.content %>
 </p>
 
-<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
-<%= link_to 'Back', exhibitions_path %>
+<div class="row">
+  <div class="ml-auto">
+    <%= link_to '수정', edit_exhibition_path(@exhibition) %>
+    <%= link_to '목록', exhibitions_path %>
+    <%= link_to '삭제', @exhibition, method: :delete, data: { confirm: '삭제하면 모든 데이터가 지워집니다. 정말 삭제하시겠습니까?' } %>
+  </div>
+</div>

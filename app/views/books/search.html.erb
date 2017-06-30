@@ -1,6 +1,17 @@
-<%= @books.each do |book| %>
-  <%= link_to book.title, book %>
-  <%= book.title %>
-  <%= book.content %>
-  <br>
+<p id="category">
+    검색결과입니다.
+</p>
+
+<hr>
+
+<% @books.each do |book| %>
+  <div class="row">
+    <p class="col-md-1 catalogue catalogue-title">
+      <%= book.id %>
+    </p>
+    <p class="col catalogue">
+      <%= link_to book.title, book, class: "col" %>
+    </p>
+  </div>
+  <hr>
 <% end %>
